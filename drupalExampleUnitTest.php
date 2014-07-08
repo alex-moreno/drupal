@@ -4,18 +4,18 @@
  * Tests TrackAndTraceNumber object.
  */
 define('DRUPAL_ROOT', getcwd());
-include 'modules/custom/pfw_registration/includes/pfw_registration.helpers.inc';
+include 'modules/custom/[YOUR-MODULE]/includes/pfw_registration.helpers.inc';
 
 /**
  * PHPunit PFWRegistration.
  *
  * To run :
  *
- * phpunit --configuration=phpunit.xml -v --filter testPFWRegistrationExtractAccountContractNumbers
+ * phpunit --configuration=phpunit.xml -v --filter testYourFunctionToTest
  *
- * @group PfwRegistration
+ * @group YOURMODULE
  */
-class PFWRegistrationTest extends PHPUnit_Framework_TestCase {
+class YOURMODULETest extends PHPUnit_Framework_TestCase {
 
   /**
    * Default test object.
@@ -25,34 +25,28 @@ class PFWRegistrationTest extends PHPUnit_Framework_TestCase {
   protected $trackAndTraceNumber;
 
   /**
-   * Start by creating a TrackAndTraceNumber object
+   * Start by creating an object
    */
   public function setUp() {
-    $this->trackAndTraceNumber = new TrackAndTraceNumber('TrackAndTraceNumber', array());
+    $this->trackNumber = new TrackNumber('TrackNumber', array());
   }
 
   /**
-   * @dataProvider PFWRegistrationNumbersPoiseFormData
+   * @dataProvider PYOURMODULEFormData
    */
-  public function testPFWRegistrationExtractAccountNumbersForPoise($form) {
+  public function testYourFunctionToTest($form) {
 
-    $result = extract_account_numbers_for_poise($form);
+    $result = function_to_test($form);
 
     // @todo: change with assertequals and add new arrays to compare with results
     $this->assertNotEmpty($result);
   }
 
   /**
-   * @dataProvider PFWRegistrationContractNumbersFormData
+   * @dataProvider PYOURMODULEFormData
    */
   public function testPFWRegistrationExtractAccountContractNumbers($form) {
-
-    $result = pfw_registration_extract_account_contract_numbers($form);
-
-    // @todo: change with assertequals and add new arrays to compare with results
-    $this->assertNotEmpty($result);
   }
-
 
 
   /**
@@ -60,7 +54,7 @@ class PFWRegistrationTest extends PHPUnit_Framework_TestCase {
    *
    * @return array
    */
-  public function PFWRegistrationContractNumbersFormData() {
+  public function PYOURMODULEFormData() {
     return array(
       array(
         array(
